@@ -1,13 +1,13 @@
 
 import './App.css'
-import People from './Components/People'
+import Character from './Components/Character'
 
 function App() {
 
 
   return (
     <>
-      <People />
+      <Character />
     </>
   )
 }

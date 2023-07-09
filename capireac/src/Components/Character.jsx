@@ -2,27 +2,27 @@ import { useState } from "react"
 import { useEffect } from "react"
 
 
-const People = () => {
-    const [People, setPeople] = useState([])
+const Character = () => {
+    const [Character, setCharacter] = useState([])
 
     useEffect(() => {
-        fetch('https://swapi.dev/api/')
+        fetch('https://hp-api.onrender.com/api/characters')
             .then(Response => Response.json())
             .then(responseData => {
                 let data = responseData.results
                 console.log(data)
-                setPeople(data)
+                setCharacter(data)
             })
     }, [])
 
     return (
         <div className="container">
             {
-                People.map(People =>
+                Character.map(Character =>
 
-                    <div className="card" key={(People.id)}>
-                        <img src={People.image} alt="personaje" />
-                        <p>{People.name}</p>
+                    <div className="card" key={(Character.id)}>
+                        <img src={Character.image} alt="personaje" />
+                        <p>{Character.name}</p>
                     </div>
                 )
             }
@@ -31,5 +31,5 @@ const People = () => {
     )
 }
 
-export default People;
+export default Character;
 
