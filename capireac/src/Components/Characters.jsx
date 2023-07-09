@@ -18,11 +18,11 @@ const Characters = () => {
     return (
         <div className="container">
             {
-                Characters.map(Characters =>
+                Characters.map(Character =>
 
-                    <div className="card" key={(Characters.id)}>
-                        <img src={Characters.image} alt="personajes" />
-                        <p>{Characters.name}</p>
+                    <div className="card" key={(Character.id)}>
+                        <img src={Character.image} alt="personajes" />
+                        <p>{Character.name}</p>
                     </div>
                 )
             }
