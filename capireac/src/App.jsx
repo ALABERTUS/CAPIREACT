@@ -1,15 +1,28 @@
 
-import './App.css'
-import Characters from './Components/Characters'
+import React, { useEffect, useState } from 'react';
+import './App.css';
 
 function App() {
+  const [characters, setCharacters] = useState([]);
+  useEffect(() => {
+    fetch('https://hp-api.onrender.com/api/characters')
+      .then(Response => Response.json())
+      .then(data => setCharacters(data));
+  }, []);
 
 
   return (
-    <>
-      <Characters />
-    </>
-  )
+    <div>
+      <div className="card-container">
+        {characters.map(character => (
+          <div className="card" key={character.name}>
+            <img src={character.image} alt={character.name} />
+            <p>{character.name}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 }
 
-export default App
+export default App;
