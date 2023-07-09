@@ -2,8 +2,8 @@ import { useState } from "react"
 import { useEffect } from "react"
 
 
-const Character = () => {
-    const [Character, setCharacter] = useState([])
+const Characters = () => {
+    const [Characters, setCharacters] = useState([])
 
     useEffect(() => {
         fetch('https://hp-api.onrender.com/api/characters')
@@ -11,18 +11,18 @@ const Character = () => {
             .then(responseData => {
                 let data = responseData.results
                 console.log(data)
-                setCharacter(data)
+                setCharacters(data)
             })
     }, [])
 
     return (
         <div className="container">
             {
-                Character.map(Character =>
+                Characters.map(Characters =>
 
-                    <div className="card" key={(Character.id)}>
-                        <img src={Character.image} alt="personaje" />
-                        <p>{Character.name}</p>
+                    <div className="card" key={(Characters.id)}>
+                        <img src={Characters.image} alt="personajes" />
+                        <p>{Characters.name}</p>
                     </div>
                 )
             }
@@ -31,5 +31,5 @@ const Character = () => {
     )
 }
 
-export default Character;
+export default Characters;
 
