@@ -1,5 +1,5 @@
 
-import{ useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
@@ -13,11 +13,19 @@ function App() {
 
   return (
     <div>
-      <div className="card-container">
+      <div className="card">
         {characters.map(character => (
-          <div className="card" key={character.name}>
+          <div className="card Img" key={character.name}>
             <img src={character.image} alt={character.name} />
-            <p>{character.name}</p>
+            <h1>Name: {character.name}</h1>
+            <p>Gender: {character.gender}</p>
+            <p>Species: {character.species}</p>
+            <p>House: {character.house}</p>
+            <p>Date of birth: {character.dateOfBirth}</p>
+            <p>Year of Birth{character.yearOfBirth}</p>
+            <p>Wizard: {character.wizard}</p>
+            <p>Ancestry: {character.ancestry}</p>
+          
           </div>
         ))}
       </div>
